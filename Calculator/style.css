@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: block;
+    background-image: url("./bg.jpg");
+}
+
+#loading{
+    margin-top: -4rem;
+    width: 100%;
+    height: 100vh;
+    background-image: url("./icons/preloader.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    z-index: 99999;
+}
+
+.container{
+    display: flex;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.calculator{
+    background-color: white;
+    display: block;
+    height: 80vh;
+    width: 25vw;
+    border: 2px solid black;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 20px grey;
+}
+
+.result{
+    height: 14vh;
+    margin: 0rem auto;
+    margin-top: 1.5rem;
+    width: 95%;
+    border: 1px solid grey;
+    border-radius: 1rem;
+}
+
+#history{
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    height: 3rem;
+}
+
+#history-value{
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: grey;
+    align-self: center;
+}
+
+#output{
+    margin: 5px;
+    height:5.5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+#output-value{
+    font-size: 2.4rem;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.keyboard{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button{
+    justify-self: center;
+    align-self: center;
+    margin: 0.8rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 5rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    border: 1px solid black;
+    background-color: #dcdde2;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#mic-icon-size{
+    width: 1.5rem;
+}
+footer{
+    padding: 1rem;
+    display: block;
+    margin: 0 auto;
+    width: 20px;
+}
+
+
+/* Operator button color  */
+.color-1{
+    background-color: purple;
+    color: white;
+}
+.color-2{
+    background-color: green;
+    color: white;
+}
+.color-3{
+    background-color: blue;
+    color: white;
+}
+.color-4{
+    background-color:brown;
+    color: white;
+}
+.color-5{
+    background-color:rgb(216, 140, 0);
+    color: white;
+}
+
+/*<-----------Desktop and laptop-----------> */
+@media (min-width:1024px){
+    .calculator{
+        display: block;
+        height: 90%;
+        width: 25vw;
+        border: 2px solid black;
+        box-shadow: 5px 5px 20px grey;
+    }
+}
+
+/*<----------- Mobile-----------> */
+@media (min-width: 0px) and (max-width: 768px){
+    .calculator{
+        display: block;
+        height: 90%;
+        width: 95%;
+        border: 2px solid black;
+        box-shadow: 5px 5px 20px grey;
+    }
+}
+
+/*<----------- Tablets and Ipads -----------> */
+@media (min-width: 769px) and (max-width: 1024px){
+    .calculator{
+        display: block;
+        height: 90%;
+        width: 95%;
+        border: 2px solid black;
+        box-shadow: 5px 5px 20px grey;
+    }
+}
