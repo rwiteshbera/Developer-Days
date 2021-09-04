@@ -8,7 +8,7 @@ To run any React application, you must have NodeJS and npm installed on our syst
 
 #### NodeJS Download Link: https://nodejs.org/en/
 
-To deploy this project install all the required dependecies and run by using the following commands.
+To deploy this project, install all the required dependencies and run by using the following commands.
 
 ```bash
   npm install
