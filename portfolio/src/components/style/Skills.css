@@ -1,0 +1,36 @@
+/* Poppins  */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&display=swap');
+
+
+.skills{
+    width: 80vw;
+    height: 100vh;
+    margin: auto;
+    /* border: 2px solid red; */
+    margin-top: 10%;
+}
+
+.skills h1{
+    padding-top: 10%;
+    margin-left: 0rem;
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#logoDiv {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 1rem;
+    margin-left: 10rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
+#logoDiv img{
+    /* border: 2px solid red; */
+    width: 50px;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}

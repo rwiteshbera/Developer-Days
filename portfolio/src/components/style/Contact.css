@@ -1,0 +1,15 @@
+/* Poppins  */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&display=swap');
+
+
+.contact-div{
+    padding-top: 10rem;
+    margin: auto;
+    width: 50vw;
+    height: 100vh;
+    /* border: 2px solid green; */
+}
+
+#submit{
+    margin-top: 1rem;
+}

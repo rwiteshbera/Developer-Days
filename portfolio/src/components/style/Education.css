@@ -1,0 +1,26 @@
+/* Poppins  */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&display=swap');
+
+.education{
+    font-family: 'Poppins', sans-serif;
+    height: 90vh;
+    padding-top: 12rem;
+    margin-left: 8rem;
+}
+
+.education h1{
+    font-size: 4rem;
+}
+
+.education div{
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.education div h2{
+    font-size: 2rem;
+}
+
+.education div h3{
+    font-size: 1.4rem;
+}
