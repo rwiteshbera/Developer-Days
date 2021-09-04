@@ -3,7 +3,7 @@
 
 
 .contact-div{
-    padding-top: 10rem;
+    padding-top: 8rem;
     margin: auto;
     width: 50vw;
     height: 100vh;
@@ -11,5 +11,18 @@
 }
 
 #submit{
-    margin-top: 1rem;
+    margin-top: 2rem;
+}
+
+
+.social {
+    margin-top: 3rem;
+}
+
+.social Button{
+    width: 10rem;
+}
+
+#btn{
+    margin: 1rem;
 }
