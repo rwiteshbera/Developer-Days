@@ -1,38 +1,66 @@
 const express = require('express'); // Express web server framework
 const app = express(); // Express web server application
+const bodyParser = require('body-parser'); // Body parser middleware
 const path = require('path'); // Path utilities
-const port = process.env.PORT || 3000; // Port to run the server on
+const port = process.env.PORT || 5000; // Port to run the server on
+const multer = require('multer'); // Multer for handling file uploads
+const db = require("./public/database/connect"); // Connect to the database
+const Schema = require("./public/database/db"); // Schema for the database
 
-require("./public/database/connect"); // Connect to the database
-const db = require("./public/database/db"); // Get the database object
+
+app.use(bodyParser.urlencoded({ extended: true })); // Parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); // Parse application/json
+
 
 const staticPath = path.join(__dirname, "./public"); // Path to static files
 app.use(express.static(staticPath)); // Set static files location
-app.use(express.json()); // Set JSON parser
-app.use(express.urlencoded()); // Set URL encoded parser
+app.use(express.json()); // Set JSON parser 
 
-app.post('/', async (req, res) => {
-    try {
-       // Store the data in the database
-        const data = new db({
+
+
+var storage = multer.diskStorage({ // Multer storage settings
+    destination: function (req, file, cb) { // Destination function
+        cb(null, './public/uploads');
+    },
+    filename: function (req, file, cb) { // Filename function
+        cb(null, Date.now() + file.fieldname + path.extname(file.originalname));
+    }
+});
+
+
+
+
+// Upload parameters for multer
+const upload = multer({ // Define upload settings
+    storage: storage,
+    limits: {
+        fileSize: 5000000 // Set maximum file size to 5MB
+    }
+});
+
+// Define route after uploading file
+app.post('/upload', upload.single('userfile'), async (req, res, next) => {
+    const file = req.file; // Get the file from the request
+
+    if(!file){
+       res.send('<h1>No file uploaded</h1>');
+    }
+    else{
+        res.send(file);
+        const assignmentData = new Schema ({
             name: req.body.name,
             roll: req.body.roll,
             branch: req.body.branch,
             email: req.body.email,
-            // file: req.body.userfile,
+            pdf: file.originalname
         })
-
-        const submit = await data.save(); // Save the data to the database
-        // pop up a success message
-    res.send(`<h1>Success!</h1>`);
-    
-    }
-    catch (e) {
-        res.send(e);
-        res.status(400).send(e);
+        const data = await assignmentData.save(); // Save the data to the database
     }
 });
 
+ 
+
+
 app.listen(port, () => { // Start the server
-    console.log(`Server listening on port ${port}`); // Log the server is listening
+    console.log(`Server is listening on port ${port}`); // Log the server is listening
 }) // End server.listen()

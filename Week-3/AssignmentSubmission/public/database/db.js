@@ -16,13 +16,11 @@ const studentSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true
+    },
+    pdf: {
+        type: String,
+        required: true
     }
-    // },
-    // pdf: {
-    //     type: Buffer,
-    //     required: true,
-    //     contentType: 'application/pdf'
-    // }
 });
 
 

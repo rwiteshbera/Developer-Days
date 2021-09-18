@@ -1,10 +1,10 @@
 // Connect express app to database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/studentAssignment', {
+mongoose.connect('mongodb://localhost:27017/rwitesh', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
-    console.log("Connection Successful.");
+    console.log("Connected to MongoDB");
 }).catch((err) => {
-    console.log(err);
+    console.log("Failed to connect with MongoDB");
 });
