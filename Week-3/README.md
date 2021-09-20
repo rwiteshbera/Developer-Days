@@ -20,4 +20,4 @@ Then open [http://localhost:5000](http://localhost:5000) in your browser.
 
 
 #### Screenshots: 
-:::image type="content" source="AssignmentSubmission/images/screenshot.png" alt-text="Screenshot":::
+![Screenshot](AssignmentSubmission/images/screenshot.png)
