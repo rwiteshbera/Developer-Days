@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="./icons/graduation-cap-solid.svg" type="image/x-icon">
     <title>Assignment Submission</title>
 </head>
+
 <body>
-    <h1>Rwitesh Bera</h1>
-    <form action="/upload" method="POST" onsubmit="" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Name">
-        <input type="number" name="roll" placeholder="Your Roll Number">
-        <select name="branch" id="branch">
-            <option value="cse">Computer Science and Engineering</option>
-            <option value="it">Information Technology</option>
-            <option value="ece">Electronics Engineering</option>
-            <option value="ee">Electrical Engineering</option>
-            <option value="me">Mechanical Engineering</option>
-            <option value="ce">Civil Engineering</option>
-        </select>
-        <input type="text" name="email" placeholder="Email">
-        <input type="file" accept="application/pdf" name="userfile">
-        <button type="submit"value="submitVal">Submit</button>
-    </form>
+    <div class="container">
+        <h1 id="title">Submit your assignment here</h1>
+        <form action="/" method="POST" onsubmit="" enctype="multipart/form-data" >
+            <div class="name">
+                <input type="text" name="firstname" placeholder="First Name" autocomplete="off" id="fname">
+                <input type="text" name="lastname" placeholder="Last Name"  autocomplete="off" id="lname">
+            </div>
+            <input type="text" name="email" placeholder="Email"  autocomplete="off" id="email">
+            <input type="text" name="roll" placeholder="Your Roll Number"  autocomplete="off" id="roll">
+
+            <label for="">Choose your branch</label>
+            <div class="branchContainer">
+                <select name="branch" id="branch">
+                    <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electronics Engineering">Electronics Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                </select>
+
+                <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Choose file
+                </label>
+                <input type="file" accept="application/pdf" name="userfile" id="file-upload">
+             
+            </div>
+            
+            <div class="display">
+                <span id="fileName">No File Selected</span>
+                <label for="file-remove" id="custom-file-remove">
+                    <i class="fa fa-cloud-upload"></i> Remove file
+                </label>
+            </div>
+           
+
+
+            <button type="submit" value="submitVal" id="submit">Submit</button>
+        </form>
+        
+    </div>
+
+    <div class="about">
+        <i class="github-icon"></i>
+        <a href="https://github.com/rwiteshbera" target="_blank">Rwitesh Bera</a>
+    </div>
+
+    <script src="./script/script.js"></script>
 </body>
+
 </html>

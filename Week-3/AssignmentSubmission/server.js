@@ -12,18 +12,20 @@ app.use(bodyParser.urlencoded({ extended: true })); // Parse application/x-www-f
 app.use(bodyParser.json()); // Parse application/json
 
 
+
 const staticPath = path.join(__dirname, "./public"); // Path to static files
 app.use(express.static(staticPath)); // Set static files location
 app.use(express.json()); // Set JSON parser 
 
 
 
+// Set up multer for handling file uploads
 var storage = multer.diskStorage({ // Multer storage settings
     destination: function (req, file, cb) { // Destination function
-        cb(null, './public/uploads');
+        cb(null, './uploads');
     },
     filename: function (req, file, cb) { // Filename function
-        cb(null, Date.now() + file.fieldname + path.extname(file.originalname));
+        cb(null, `${req.body.roll}_${req.body.firstname}_${req.body.lastname}${path.extname(file.originalname)}`);
     }
 });
 
@@ -39,28 +41,34 @@ const upload = multer({ // Define upload settings
 });
 
 // Define route after uploading file
-app.post('/upload', upload.single('userfile'), async (req, res, next) => {
+app.post('/', upload.single('userfile'), async (req, res, next) => {
     const file = req.file; // Get the file from the request
 
-    if(!file){
-       res.send('<h1>No file uploaded</h1>');
+    if (!file) {
+        res.redirect('back');
     }
-    else{
-        res.send(file);
-        const assignmentData = new Schema ({
-            name: req.body.name,
-            roll: req.body.roll,
-            branch: req.body.branch,
-            email: req.body.email,
-            pdf: file.originalname
-        })
-        const data = await assignmentData.save(); // Save the data to the database
+    else {
+        try {
+            res.redirect(req.originalUrl);
+            const assignmentData = new Schema({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                roll: req.body.roll,
+                branch: req.body.branch,
+                email: req.body.email,
+                pdf: file.originalname
+            })
+            const data = await assignmentData.save(); // Save the data to the database
+        } catch {
+            res.redirect('back');
+        }
+
     }
 });
 
- 
+
 
 
 app.listen(port, () => { // Start the server
-    console.log(`Server is listening on port ${port}`); // Log the server is listening
+    console.log(`Server is listening on http://localhost:${port}`); // Log the server is listening
 }) // End server.listen()
